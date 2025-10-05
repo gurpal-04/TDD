@@ -1,4 +1,5 @@
 def add(numbers: str) -> int:
     if numbers == "":
         return 0
-    return sum(int(n) for n in numbers.split(","))
+    clean = numbers.replace("\n", ",")
+    return sum(int(n) for n in clean.split(","))
