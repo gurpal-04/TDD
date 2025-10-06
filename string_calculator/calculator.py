@@ -8,10 +8,12 @@ def add(numbers: str) -> int:
         numbers = numbers[4:]
     
     clean = numbers.replace(delimiter, ",")
-    negative_numbers = [n for n in clean.split(",") if int(n) < 0]
+    numbers = [int(n) for n in clean.split(",")]
+    negative_numbers = [str(n) for n in numbers if n < 0]
+    print(negative_numbers, numbers)
 
     if negative_numbers:
         raise Exception(f"negative numbers not allowed {','.join(negative_numbers)}")
 
-    filtered = [int(n) for n in clean.split(",") if int(n) <= 1000]
+    filtered = [n for n in numbers if n <= 1000]
     return sum(filtered)
